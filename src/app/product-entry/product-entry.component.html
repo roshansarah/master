@@ -36,6 +36,13 @@
             <button class="btn-primary" (click)="saveProduct(pid.value,pname.value)">Save Product</button>
         </div>
     </div>
+<div [ngSwitch]="done">
+    <div  *ngSwitchCase="true">Matched True and Yes</div>
+    <div  *ngSwitchDefault>Default</div>
+   
+
+</div>
+
     <div id="productListing" class="col-sm-12 row">
         <div class="col-sm-12 row" *ngFor="let product of productArray">
             id:{{product.pid}} <br />

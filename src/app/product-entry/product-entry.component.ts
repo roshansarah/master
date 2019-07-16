@@ -10,8 +10,8 @@ import{Product} from './product'
 export class ProductEntryComponent implements OnInit {
  //productArray:Product=<any> <Product[]>[]
  productArray:Product[]=<any><Product[]>[ ]//inference type
-
-  constructor() { }
+ 
+  done=true
 
   ngOnInit() {
   }
