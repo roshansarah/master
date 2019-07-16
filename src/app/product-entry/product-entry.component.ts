@@ -8,7 +8,9 @@ import{Product} from './product'
   styleUrls: ['./product-entry.component.css']
 })
 export class ProductEntryComponent implements OnInit {
- productArray:Product=<any> <Product[]>[]
+ //productArray:Product=<any> <Product[]>[]
+ productArray:Product[]=<any><Product[]>[ ]//inference type
+
   constructor() { }
 
   ngOnInit() {
