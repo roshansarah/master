@@ -1,3 +1,15 @@
+<ng-template #templateTitle let-text="title">
+    <h4 class="p-2 bg-success text-white">
+       {{ text }}
+       
+    </h4>
+    <fa name="car" animation="spin"></fa>
+</ng-template>
+
+<ng-template [ngTemplateOutlet]="templateTitle"
+      [ngTemplateOutletContext]="{title:'Header'}"></ng-template>
+
+
 <div class="container">
     <div id="productEntryForm" class="col-sm-12 row">
 
@@ -6,7 +18,7 @@
         </div>
         <div class="col-sm-6 col">
             <input type="text" name="pid" id="pid" #pid>
-            
+
         </div>
     </div>
     <div id="productEntryForm" class="col-sm-12 row">
@@ -21,13 +33,16 @@
     </div>
     <div id="saveProduct" class="col-sm-12 row">
         <div class="col" style="text-align: center">
-        <button class="btn-primary" (click)="saveProduct(pid.value,pname.value)">Save Product</button>
-    </div>
+            <button class="btn-primary" (click)="saveProduct(pid.value,pname.value)">Save Product</button>
+        </div>
     </div>
     <div id="productListing" class="col-sm-12 row">
         <div class="col-sm-12 row" *ngFor="let product of productArray">
-            id:{{product.pid}} <br/>
+            id:{{product.pid}} <br />
             name:{{product.pname}}
         </div>
     </div>
 </div>
+
+<ng-template [ngTemplateOutlet]="templateTitle"
+[ngTemplateOutletContext]="{title:'Footer'}"></ng-template>
