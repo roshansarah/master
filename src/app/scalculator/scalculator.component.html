@@ -1,0 +1,32 @@
+
+<div>
+    <form action="javascript:void">
+            <p>scalculator works!</p>
+
+        <div *ngIf="operator=='' && result == 0">
+        <input type="text" name="" id="" (input)="value1=$event.target.value" value="{{value1}}">
+        </div>
+        <div *ngIf="operator!='' && result == 0">
+            <input type="text" name="" id="" (input)="value2=$event.target.value" value="{{value2}}">
+        </div>
+        <div *ngIf="result != 0">
+            <input type="text" name="" id=""  value="{{result}}">
+        </div>
+    
+        <!-- <div style="padding-left:7%">  -->
+            <div style="margin-top:8%">
+<button *ngFor="let i of [1,2,3,4]" (click)="displayValue(i)">{{i}}</button>
+        </div>
+<div>
+<button *ngFor="let i of [5,6,7,8]" (click)="displayValue(i)">{{i}}</button>
+</div>
+<div>
+<button *ngFor="let i of [9,0]" (click)="displayValue(i)">{{i}}</button>
+</div>
+        <div>
+            <button (click)="setOperator(op)" *ngFor="let op of ['+','-','*','/']">{{op}}</button>
+            <button (click)="calculate()">=</button>
+            <button (click)="clear()">c</button>
+        </div>
+    </form>
+</div>
