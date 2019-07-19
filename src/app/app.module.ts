@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SCalculatorComponent } from './scalculator/scalculator.component';
 import { ProductEntryComponent } from './product-entry/product-entry.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+ import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
