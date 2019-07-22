@@ -54,5 +54,21 @@
 <ng-template [ngTemplateOutlet]="templateTitle"
 [ngTemplateOutletContext]="{title:'Footer'}"></ng-template>
 
+<p [ngStyle]="myStyle">Red and Bold String</p>
+<select name="myColor" (click)="myColor=$event.target.value;updateStyle()">
+<option value="red">Red</option>
+<option value="green">Green</option>
+</select>
+
+<h1 [ngClass]="blueBold" [innerText]="text"></h1>
+
+<h1 [className]="disabled == 'true'? 'blueBoldDisabled':'blueBold'" [innerText]="text"></h1>
+<select name="" id="" (click)="disabled=$event.target.value">
+<option value="true">Disable</option>
+<option value="false">Not Disabled</option>
+
+</select>
+
+
 
 

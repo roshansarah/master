@@ -4,3 +4,13 @@ body{
     height: 900px;
     width:900px;
 }
+
+.blueBold{
+    color:blue;
+    font-weight: bold
+}
+
+.blueBoldDisabled{
+    color:#A9A9A9;
+    font-weight: bold
+}
