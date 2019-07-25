@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import{Product} from './product'
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-entry',
@@ -23,11 +24,27 @@ export class ProductEntryComponent implements OnInit {
   //using conditions
   blueBoldDisabled='blueBoldDisabled'
   disabled=false
+
+  //for ajax
+  _prodService:ProductService
+  _productList
+  
+  constructor(prodService:ProductService){
+    
+    this._prodService=prodService
+
+  }
   
 
   ngOnInit() {
+
+    this._prodService.getProductList()
+    .subscribe((data)=>{
+     this._productList=data
     
+    })
   }
+  
   
   saveProduct(pid,pname){
     

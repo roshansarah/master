@@ -8,6 +8,7 @@ import { SCalculatorComponent } from './scalculator/scalculator.component';
 import { ProductEntryComponent } from './product-entry/product-entry.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
  import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
+ import {HttpClientModule} from  '@angular/common/http'
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     AppRoutingModule, 
     FormsModule,
     AngularFontAwesomeModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
