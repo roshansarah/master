@@ -17,6 +17,7 @@ export class ProductEntryComponent implements OnInit {
   myFont='bold'
   myStyle={'color':this.myColor,'font-weight':this.myFont}
   text="Welcome to Expertzlab!"
+  errorMessage  =[]
 
   //For ngClass to work add the below property
   blueBold='blueBold'
@@ -39,10 +40,21 @@ export class ProductEntryComponent implements OnInit {
   ngOnInit() {
 
     this._prodService.getProductList()
-    // .subscribe((data)=>{
-    //  this._productList=data
-    
-    // })
+    .subscribe(
+     res=>{
+       this._productList=res
+     },
+     err =>{
+       console.log(err)
+      this.errorMessage.push(err.message)
+       this.errorMessage.push('Server error.Please try again')
+     },
+     ()=>{
+       console.log('stream completed')
+     }
+      
+    )
+  
   }
   
   
