@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of, interval } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { of, interval, throwError } from 'rxjs';
+import { filter, map, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,10 @@ export class ProductService {
       tap((data)=>{
         console.log('received from server:',data)
        }),
+      catchError(err =>{
+         console.log("Error in PS",err)
+         return throwError (err)
+        })
       
     
       

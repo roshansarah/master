@@ -46,13 +46,13 @@ export class ProductEntryComponent implements OnInit {
      },
      err =>{
        console.log(err)
-      this.errorMessage.push(err.message)
+      this.errorMessage.push(err)
        this.errorMessage.push('Server error.Please try again')
      },
      ()=>{
        console.log('stream completed')
      }
-      
+
     )
   
   }
