@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of, interval, throwError } from 'rxjs';
+import { of, interval, throwError, Observable } from 'rxjs';
 import { filter, map, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -21,30 +21,20 @@ export class ProductService {
       
       
        map((data:any[])=>{
-         const nData=[]
-        data.forEach(el=>{
-          const sid='S- '+ el.id
-          const sname='S- '+el.name
-         
-       nData.push({
-        'name':sname,
-          'id':sid
-          
-        })
-          
-        })
-        return nData 
+      
+      return throwError(data)
       }),
+      catchError(this.handleError('GetProductList')),
       tap((data)=>{
         console.log('received from server:',data)
        }),
-      catchError(err =>{
-         console.log("Error in PS",err)
-         return throwError (err)
-        })
+      
+      catchError((e)=> {
+        console.log('error',e)
+        return  throwError(e)
+      })
       
     
-      
 )
     
   
@@ -66,4 +56,14 @@ export class ProductService {
     //   }
     // )
   }
+
+  handleError(op,result?:Observable<Object>,err?:any){
+    return (err:any):Observable<Object>=> {
+      console.log('Op',op)
+      console.log('err',err)
+      return of([err])
+    }
+  
 }
+}
+
